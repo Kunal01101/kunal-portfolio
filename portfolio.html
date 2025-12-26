@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kunal Badgujar - Engineering Portfolio</title>
+    <style>
+      /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+        line-height: 1.6;
+        color: #1e293b;
+        background: #fafafa;
+      }
+
+      /* ============================================
+           NAVIGATION
+           ============================================ */
+      .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(250, 250, 250, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #e5e7eb;
+        z-index: 1000;
+        padding: 1rem 2rem;
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1e293b;
+        text-decoration: none;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-menu a {
+        color: #475569;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-menu a:hover {
+        color: #0891b2;
+      }
+
+      /* ============================================
+           HERO SECTION
+           ============================================ */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fafafa 0%, #f1f5f9 100%);
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(8, 145, 178, 0.1);
+        color: #0891b2;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: #475569;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .hero-tagline {
+        font-size: 1.125rem;
+        color: #64748b;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: #0891b2;
+        color: white;
+        border: none;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: #0e7490;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(8, 145, 178, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #1e293b;
+        border: 2px solid #cbd5e1;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        border-color: #0891b2;
+        color: #0891b2;
+        background: rgba(8, 145, 178, 0.05);
+      }
+
+      /* ============================================
+           SECTION STYLES
+           ============================================ */
+      section {
+        padding: 6rem 2rem;
+        scroll-margin-top: 80px;
+      }
+
+      .section-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-label {
+        display: inline-block;
+        color: #0891b2;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-top: 0.5rem;
+      }
+
+      /* ============================================
+           ABOUT SECTION
+           ============================================ */
+      .about-section {
+        background: #ffffff;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .about-bio {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 2.5rem;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .stat-item:hover {
+        background: rgba(8, 145, 178, 0.05);
+        transform: translateY(-4px);
+      }
+
+      .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #0891b2;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .about-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .highlight-card {
+        padding: 2rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        border-left: 4px solid #0891b2;
+        transition: all 0.3s ease;
+      }
+
+      .highlight-card:hover {
+        transform: translateX(8px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .highlight-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.75rem;
+      }
+
+      .highlight-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #64748b;
+      }
+
+      /* ============================================
+           SKILLS SECTION
+           ============================================ */
+      .skills-section {
+        background: #f8fafc;
+      }
+
+      .skills-category {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 3rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 3rem;
+      }
+
+      .category-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 2rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-card {
+        padding: 1.5rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-color: #0891b2;
+      }
+
+      .skill-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 1rem;
+      }
+
+      .skill-progress {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0891b2 0%, #06b6d4 100%);
+        border-radius: 4px;
+        transition: width 1s ease;
+      }
+
+      .skill-level {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #64748b;
+      }
+
+      /* ============================================
+           PROJECTS SECTION
+           ============================================ */
+      .projects-section {
+        background: #ffffff;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+
+      .project-content {
+        padding: 1.75rem;
+      }
+
+      .project-category {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #0891b2;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+
+      .project-description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #64748b;
+        margin-bottom: 1.25rem;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tech-tag {
+        padding: 0.375rem 0.75rem;
+        background: #f1f5f9;
+        color: #475569;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+
+      /* ============================================
+           CONTACT SECTION
+           ============================================ */
+      .contact-section {
+        background: #f8fafc;
+      }
+
+      .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-card {
+        text-align: center;
+        padding: 2rem;
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        border-color: #0891b2;
+        transform: translateY(-4px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-card h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.75rem;
+      }
+
+      .contact-card a,
+      .contact-card p {
+        font-size: 1rem;
+        color: #475569;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-card a:hover {
+        color: #0891b2;
+      }
+
+      /* ============================================
+           FOOTER
+           ============================================ */
+      .footer {
+        background: #1e293b;
+        color: #cbd5e1;
+        padding: 3rem 2rem 2rem;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .footer-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-tagline {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: #334155;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #0891b2;
+        color: #ffffff;
+        transform: translateY(-3px);
+      }
+
+      .footer-copyright {
+        font-size: 0.875rem;
+        color: #94a3b8;
+        padding-top: 2rem;
+        border-top: 1px solid #334155;
+      }
+
+      /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+      @media (max-width: 1024px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 4rem 1.5rem;
+        }
+
+        .hero-section {
+          padding: 5rem 1.5rem 3rem;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.25rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .skills-category {
+          padding: 2rem 1.5rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="navigation">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">Portfolio</a>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         EDIT: Your name, title, and tagline
+         ============================================ -->
+    <section id="home" class="hero-section">
+      <div class="hero-container">
+        <div class="hero-badge">Engineering Portfolio</div>
+        <h1 class="hero-title">Kunal Badgujar</h1>
+        <p class="hero-subtitle">
+          Mechanical Engineering Student | Computer Engineering Enthusiast
+        </p>
+        <p class="hero-tagline">
+          Bridging hardware innovation with software solutions
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Download CV</a>
+          <a href="#about" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         EDIT: Your bio and stats
+         ============================================ -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">Get to know me</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-bio">
+              I'm a passionate Mechanical Engineering student with a strong
+              interest in Computer Engineering. I thrive at the intersection of
+              physical systems and digital technologies, creating innovative
+              solutions that combine mechanical design with computational
+              intelligence. My goal is to develop smart engineering solutions
+              that make a real-world impact.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <div class="stat-value">7.16</div>
+                <div class="stat-label">CGPA</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">5+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">4+</div>
+                <div class="stat-label">Certifications</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <h3>Mechanical Engineering</h3>
+              <p>
+                Expert in CAD design, FEA analysis, and mechanical systems.
+                Passionate about creating innovative physical solutions.
+              </p>
+            </div>
+            <div class="highlight-card">
+              <h3>Computer Engineering</h3>
+              <p>
+                Proficient in programming, embedded systems, and software
+                development. Love bridging software with hardware.
+              </p>
+            </div>
+            <div class="highlight-card">
+              <h3>Interdisciplinary Approach</h3>
+              <p>
+                Combining mechanical design with computational intelligence to
+                create smart engineering solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS SECTION
+         EDIT: Your skills and percentages
+         ============================================ -->
+    <section id="skills" class="skills-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">Technical Expertise</span>
+          <h2 class="section-title">Skills & Competencies</h2>
+        </div>
+
+        <!-- Mechanical Engineering Skills -->
+        <div class="skills-category">
+          <h3 class="category-title">🔧 Mechanical Engineering</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-name">CAD/CAM Design</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 85%"></div>
+              </div>
+              <div class="skill-level">85%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">SolidWorks</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 90%"></div>
+              </div>
+              <div class="skill-level">90%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">AutoCAD</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 80%"></div>
+              </div>
+              <div class="skill-level">80%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">FEA Analysis</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 75%"></div>
+              </div>
+              <div class="skill-level">75%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Ansys</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 85%"></div>
+              </div>
+              <div class="skill-level">85%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Robotics</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 70%"></div>
+              </div>
+              <div class="skill-level">70%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Computer Engineering Skills -->
+        <div class="skills-category">
+          <h3 class="category-title">💻 Computer Engineering Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-name">Python</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 85%"></div>
+              </div>
+              <div class="skill-level">85%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">C/C++</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 80%"></div>
+              </div>
+              <div class="skill-level">80%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Responsive Web Development</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 80%"></div>
+              </div>
+              <div class="skill-level">80%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 75%"></div>
+              </div>
+              <div class="skill-level">75%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Arduino/Embedded</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 85%"></div>
+              </div>
+              <div class="skill-level">85%</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Machine Learning</div>
+              <div class="skill-progress">
+                <div class="skill-progress-fill" style="width: 70%"></div>
+              </div>
+              <div class="skill-level">70%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS SECTION
+         EDIT: Add/remove/modify projects
+         ============================================ -->
+    <section id="projects" class="projects-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">My Work</span>
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <img
+              src="https://justdoelectronics.com/wp-content/uploads/2023/01/ESP8266-And-Blynk-Based-Seed-Sowing-Robot-Car6-scaled-e1686685716830.jpg"
+              alt="Robot"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-category">Robotics</div>
+              <h3 class="project-title">Autonomous Seed Sowing Robot</h3>
+              <p class="project-description">
+                An AI-driven, solar-powered autonomous robot designed to
+                automate the precision sowing of seeds, significantly reducing
+                manual labor and seed wastage for modern sustainable farming.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">3D Printing</span>
+                <span class="tech-tag">Sensors</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <img
+              src="https://us.123rf.com/450wm/neuravnoveshenui/neuravnoveshenui2005/neuravnoveshenui200500101/146019586-closeup-sharp-steel-blade-of-electric-circular-saw-table-at-woodworking-production-workshop.jpg?ver=6"
+              alt="HVAC"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-category">Mechanical Design</div>
+              <h3 class="project-title">Automatic Woodsaw Machine</h3>
+              <p class="project-description">
+                A compact wood saw machine designed and fabricated for fast,
+                accurate, and safe cutting of wooden materials. It uses an
+                electric motor-driven circular blade mounted on a rigid frame
+                with a protective guard for safety. The project focuses on
+                creating a low-cost, efficient cutting solution for small
+                workshops, DIY users, and educational labs.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">SolidWorks</span>
+                <span class="tech-tag">AutoCAD</span>
+                <span class="tech-tag">AC Motor</span>
+                <span class="tech-tag">Fabrication</span>
+                <span class="tech-tag">Circular Blade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <img
+              src="https://smartbuilds.io/wp-content/uploads/2021/01/robot-arm-captcha-1024x576.jpg"
+              alt="Analysis"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-category">Mechatronics</div>
+              <h3 class="project-title">Robotic Arm</h3>
+              <p class="project-description">
+                An Arduino-controlled robotic arm designed for precise
+                pick-and-place operations. The system uses servo motors and
+                programmed control logic to achieve smooth, accurate, and
+                repeatable movements.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">Servo Motors</span>
+                <span class="tech-tag">Power Supply</span>
+                <span class="tech-tag">Embedded C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <img
+              src="https://hackster.imgix.net/uploads/attachments/1049591/_yYzNRv1GW8.blob?auto=compress&w=900&h=675&fit=min&fm=jpg"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-category">Mini Project</div>
+              <h3 class="project-title">Line Follower Robot</h3>
+              <p class="project-description">
+                An Arduino-based autonomous robot that follows a predefined path
+                using IR sensors.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">MQ-3 Sensor</span>
+                <span class="tech-tag">Embedded C</span>
+                <span class="tech-tag">LCD Display</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card">
+            <img
+              src="https://harishprojects.com/cdn/shop/files/Alcohol_Detection_Engine_Locking_for_Drivers_Science_Project_Kit.webp?v=1718374555"
+              alt="Assembly"
+              class="project-image"
+            />
+            <div class="project-content">
+              <div class="project-category">Automotive Embedded Systems</div>
+              <h3 class="project-title">
+                Alcohol Detection and Engine Locking System
+              </h3>
+              <p class="project-description">
+                An embedded safety system designed to prevent vehicle operation
+                when alcohol is detected in the driver’s breath. The system
+                automatically locks the engine to reduce accidents and improve
+                road safety.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">IR Sensor</span>
+                <span class="tech-tag">L293D</span>
+                <span class="tech-tag">DC Motors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         EDIT: Your contact information
+         ============================================ -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Contact Me</h2>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-card">
+              <h4>Email</h4>
+              <a href="mailto:dreamboy3692@gmail.com">dreamboy3692@gmail.com</a>
+            </div>
+            <div class="contact-card">
+              <h4>Phone</h4>
+              <a href="tel:+919370241902">+919370241902</a>
+            </div>
+            <div class="contact-card">
+              <h4>Location</h4>
+              <p>Kalyan, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         EDIT: Your social media links
+         ============================================ -->
+    <footer class="footer">
+      <div class="footer-container">
+        <h3 class="footer-name">Kunal Badgujar</h3>
+        <p class="footer-tagline">
+          Bridging hardware innovation with software solutions
+        </p>
+        <div class="social-links">
+          <a
+            href="https://github.com/yourusername"
+            class="social-link"
+            target="_blank"
+            >GitHub</a
+          >
+          <a
+            href="www.linkedin.com/in/kunal-badgujar-884955335"
+            class="social-link"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:dreamboy3692@gmail.com" class="social-link">Email</a>
+        </div>
+        <p class="footer-copyright">
+          &copy; 2025 Kunal Badgujar. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
